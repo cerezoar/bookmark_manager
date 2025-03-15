@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bookmark Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <a href="{{ url_for('index') }}">
+        <h1>Bookmark Manager</h1>
+    </a>
+
+    <form action="{{ url_for('search') }}" method="GET">
+        <input type="text" name="query" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Bookmarks</h2>
+    <ul>
+        {% for i, bookmark in enumerate(bookmarks) %}
+        <li>
+            <a href="{{ bookmark.url }}" target="_blank">{{ bookmark.title }}</a>
+            <p>{{ bookmark.description }}</p>
+            <p>Document ID: {{ bookmark.doc_id }}</p>
+            <a href="{{ url_for('edit', index=i) }}">Edit</a>
+            <a href="{{ url_for('delete', index=i) }}">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add Bookmark</h2>
+    <form action="{{ url_for('add') }}" method="POST">
+        <input type="text" name="title" placeholder="Title" required><br>
+        <input type="url" name="url" placeholder="URL" required><br>
+        <textarea name="description" placeholder="Description"></textarea><br>
+        <input type="text" name="doc_id" placeholder="Document ID"><br>
+        <button type="submit">Add</button>
+    </form>
+</body>
+
+</html>

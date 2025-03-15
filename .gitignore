@@ -1,0 +1,10 @@
+.venv/
+*.pyc
+__pycache__/
+instance/
+.DS_Store
+*.sqlite
+dist/
+build/
+app.spec
+*.json

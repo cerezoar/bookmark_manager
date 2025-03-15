@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Bookmark</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <a href="{{ url_for('index') }}">
+        <h1>Edit Bookmark</h1>
+    </a>
+    <form action="{{ url_for('edit', index=index) }}" method="POST">
+        <input type="text" name="title" placeholder="Title" value="{{ bookmark.title }}" required><br>
+        <input type="url" name="url" placeholder="URL" value="{{ bookmark.url }}" required><br>
+        <textarea name="description" placeholder="Description">{{ bookmark.description }}</textarea><br>
+        <input type="text" name="doc_id" placeholder="Document ID" value="{{ bookmark.doc_id }}"><br>
+        <button type="submit">Save</button>
+    </form>
+    <a href="{{ url_for('index') }}">Cancel</a>
+</body>
+
+</html>
