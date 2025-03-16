@@ -80,3 +80,7 @@ bookmark_manager/
 - HTML: A markup language for creating web pages.
 - CSS: A stylesheet language used to describe the presentation of a document written in HTML.
 - JSON: A lightweight data-interchange format.
+
+## Compiling to EXE file (Optional)
+
+`pyinstaller --onefile --add-data "bookmark_manager/templates;templates" --add-data "bookmark_manager/static;static" bookmark_manager/app.py`

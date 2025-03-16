@@ -65,7 +65,7 @@ def search():
     for bookmark in bookmarks:
         if query.lower() in bookmark['title'].lower() or \
            query.lower() in bookmark['description'].lower() or \
-           query == bookmark['doc_id']:
+           query.lower() == bookmark['doc_id'].lower():
             results.append(bookmark)
     return render_template('index.html', bookmarks=results, enumerate=enumerate)
 
